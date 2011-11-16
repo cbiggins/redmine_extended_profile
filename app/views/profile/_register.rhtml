@@ -1,4 +1,4 @@
-<% settings = Setting.plugin_extended_profile_plugin %>
+<% settings = Setting.redmine_extended_profile_plugin %>
 <% projects = Project.all_public.active(:order => 'name') %>
 <% project_id = params[:user] ? params[:user][:project_id].to_i : nil %>
 

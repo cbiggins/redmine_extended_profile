@@ -1,7 +1,7 @@
 class ProfileHook  < Redmine::Hook::ViewListener
 
     def view_layouts_base_html_head(context = {})
-        stylesheet_link_tag('profile', :plugin => 'extended_profile')
+        stylesheet_link_tag('profile', :plugin => 'redmine_extended_profile')
     end
 
     render_on :view_account_register,          :partial => 'profile/register'

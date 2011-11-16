@@ -1,4 +1,4 @@
-<% settings = Setting.plugin_extended_profile_plugin %>
+<% settings = Setting.redmine_extended_profile_plugin %>
 <% projects = Project.all(:conditions => Project.visible_by(user), :order => 'name') %>
 
 <p>
@@ -10,41 +10,10 @@
   <%= text_field_tag('profile[company]', user.profile[:company], :size => 30) %>
 </p>
 <p>
-  <label for="profile_company_site"><%= l(:label_company_site) %></label>
-  <%= text_field_tag('profile[company_site]', user.profile[:company_site], :size => 30) %>
-</p>
-<p>
   <label for="profile_position"><%= l(:label_position) %></label>
   <%= text_field_tag('profile[position]', user.profile[:position], :size => 30) %>
 </p>
 <p>
-  <label for="profile_project_id">
-    <%= l(:label_project_of_interest) %>
-    <% if settings[:require_project] %>
-      <span class="required">*</span>
-    <% end %>
-  </label>
-  <%= select_tag('profile[project_id]',
-                 (settings[:require_project] && ((!user.identity_url && !session[:auth_source_registration]) || user.profile[:project_id].present?) ? '' : content_tag(:option)) +
-                 options_from_collection_for_select(projects, :id, :name, user.profile[:project_id])) %>
-</p>
-<p>
-  <label for="profile_personal_site"><%= l(:label_personal_site) %></label>
-  <%= text_field_tag('profile[personal_site]', user.profile[:personal_site], :size => 30) %>
-</p>
-<p>
-  <label for="profile_blog"><%= l(:label_blog) %></label>
-  <%= text_field_tag('profile[blog]', user.profile[:blog], :size => 30) %>
-</p>
-<p>
-  <label for="profile_facebook"><%= l(:label_facebook_profile_id_or_username) %></label>
-  <%= text_field_tag('profile[facebook]', user.profile[:facebook], :size => 30) %>
-</p>
-<p>
-  <label for="profile_twitter"><%= l(:label_twitter_username) %></label>
-  <%= text_field_tag('profile[twitter]', user.profile[:twitter], :size => 30) %>
-</p>
-<p>
-  <label for="profile_linkedin"><%= l(:label_linkedin) %></label>
-  <%= text_field_tag('profile[linkedin]', user.profile[:linkedin], :size => 30) %>
+  <label for="profile_skype_name"><%= l(:label_skype_name) %></label>
+  <%= text_field_tag('profile[skype_name]', user.profile[:skype_name], :size => 30) %>
 </p>

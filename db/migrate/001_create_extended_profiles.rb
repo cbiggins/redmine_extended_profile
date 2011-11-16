@@ -1,7 +1,7 @@
 class CreateExtendedProfiles < ActiveRecord::Migration
 
     def self.up
-        create_table :extended_profiles do |t|
+        create_table :extended_profiles, :force=>true do |t|
             t.column :user_id,       :integer, :null => false
             t.column :company,       :string, :limit => 60
             t.column :company_site,  :string, :limit => 120

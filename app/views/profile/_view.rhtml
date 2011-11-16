@@ -17,28 +17,33 @@
 <% if user.profile[:company].present? %>
   <%= content_tag(:li, l(:label_company) + ': ' + h(user.profile[:company])) %>
 <% end %>
-<% if user.profile[:company_site].present? %>
-  <%= content_tag(:li, l(:label_company_site) + ': ' + content_tag(:a, h(user.profile[:company_site]), :href => user.profile[:company_site], :class => 'external')) %>
-<% end %>
 <% if user.profile[:position].present? %>
   <%= content_tag(:li, l(:label_position) + ': ' + h(user.profile[:position])) %>
 <% end %>
-<% if user.profile[:personal_site].present? %>
-  <%= content_tag(:li, l(:label_personal_site) + ': ' + content_tag(:a, h(user.profile[:personal_site]), :href => user.profile[:personal_site], :class => 'external')) %>
+<% if user.profile[:skype_name].present? %>
+  <%= content_tag(:li, l(:label_skype_name) + ': ' + h(user.profile[:skype_name])) %>
+  <%= content_tag(:li, l(:label_skype_status) + ': ' + '<a href="skype:'+user.profile[:skype_name]+'?add"><img src="http://mystatus.skype.com/smallclassic/'+user.profile[:skype_name]+'" style="border: none;" alt="My status" /></a>')%>
 <% end %>
-<% if user.profile[:blog].present? %>
-  <%= content_tag(:li, l(:label_blog) + ': ' + content_tag(:a, h(user.profile[:blog]), :href => user.profile[:blog], :class => 'external')) %>
+
+<% if user.profile[:work_phone].present?
+    ext = ''
+    if user.profile[:work_phone_ext].present?
+        ext = ' (' + h(user.profile[:work_phone_ext]) +') '
+    end %>
+
+  <%= content_tag(:li, l(:label_work_phone) + ': ' + h(user.profile[:work_phone]) + ext.to_s) %>
 <% end %>
-<% if user.profile[:facebook].present? %>
-  <% facebook = user.profile[:facebook].match(/^[0-9]+$/) ? "http://www.facebook.com/profile.php?id=#{user.profile[:facebook]}" : "http://www.facebook.com/#{user.profile[:facebook]}" %>
-  <%= content_tag(:li, l(:label_facebook) + ': ' + content_tag(:a, h(facebook), :href => facebook, :class => 'external facebook')) %>
+
+<% if user.profile[:home_phone].present? %>
+  <%= content_tag(:li, l(:label_home_phone) + ': ' + h(user.profile[:home_phone])) %>
 <% end %>
-<% if user.profile[:twitter].present? %>
-  <%= content_tag(:li, l(:label_twitter) + ': ' + content_tag(:a, '@' + h(user.profile[:twitter]), :href => "http://twitter.com/#{user.profile[:twitter]}", :class => 'external twitter')) %>
+<% if user.profile[:mobile_phone].present? %>
+  <%= content_tag(:li, l(:label_mobile_phone) + ': ' + h(user.profile[:mobile_phone])) %>
 <% end %>
-<% if user.profile[:linkedin].present? %>
-  <%= content_tag(:li, l(:label_linkedin) + ': ' + content_tag(:a, h(user.profile[:linkedin]), :href => user.profile[:linkedin], :class => 'external linkedin')) %>
+<% if user.profile[:fax_number].present? %>
+  <%= content_tag(:li, l(:label_fax_number) + ': ' + h(user.profile[:fax_number])) %>
 <% end %>
+
 </ul>
 
 <% end %>

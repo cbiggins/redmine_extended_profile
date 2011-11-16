@@ -1,6 +1,6 @@
 = Extended Profile plugin for redmine
 
-A Redmine plugin to extend Redmine's user profiles with additional fields.
+A redmine plugin to mimic Basecamp's profile fields.
 
 == Features
 
@@ -27,4 +27,5 @@ This plugin is licensed under the GNU GPL v2.  See LICENSE for details.
 == Contributions
 
 * original author Andriy Lesyuk (http://projects.andriylesyuk.com/projects/redmine-profile)
+* This version forked from Daniel Seifert (https://github.com/dseifert/extended_profile)
 * see CREDITS for additional contributions
